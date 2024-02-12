@@ -36,4 +36,10 @@ public class Main {
 
         node4.setNext(root_short);
     }
+    /*
+        reverse the list and returns the new root
+     */
+    static MyNodeInt reverseList(MyNodeInt root) {
+        return null;
+    }
 }
