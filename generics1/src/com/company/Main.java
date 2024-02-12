@@ -12,10 +12,6 @@ public class Main {
         //root_short.
 
         MyNodeInt node = root_short;
-        while (node != null) {
-            System.out.println(node);
-            node = node.getNext();
-        }
 
         MyNodeInt root = new MyNodeInt(1, null);
         MyNodeInt node2 = new MyNodeInt(2, null);
@@ -29,17 +25,37 @@ public class Main {
         node3.setNext(node4);
         node4.setNext(null); // can skip this line
 
-        node2.setNext(node2_5);
-        node2_5.setNext(node3);
+//        node2.setNext(node2_5);
+//        node2_5.setNext(node3);
+//
+//        node3.setNext(null);
+//
+//        node4.setNext(root_short);
 
-        node3.setNext(null);
-
-        node4.setNext(root_short);
+        printLine(root);
+        System.out.println("========== reverse ===============");
+        printLine(reverseList(root));
     }
+
+    static void printLine(MyNodeInt root) {
+        while (root != null) {
+            System.out.println(root);
+            root = root.getNext();
+        }
+    }
+
     /*
         reverse the list and returns the new root
      */
     static MyNodeInt reverseList(MyNodeInt root) {
-        return null;
+        MyNodeInt prev = null;
+        MyNodeInt node = root;
+        while (node != null) {
+            MyNodeInt next = node.getNext();
+            node.setNext(prev);
+            prev = node;
+            node = next;
+        }
+        return prev;
     }
 }
