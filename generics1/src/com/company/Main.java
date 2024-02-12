@@ -63,6 +63,12 @@ public class Main {
         MyDictionary<String, Integer> code2 = new MyDictionary<>("xyz", 1000000);
         System.out.println(code2.getValue("xzz"));
         System.out.println(String.format("$%,d", code2.getValue("xyz")));
+
+        // write class with generics type T
+        // hold a member with this data (protected)
+        // in the toString print the item and add **
+        // i.e. if the data was 5
+        // the print will be **5**
     }
 
     static void printLineGen(MyNode<?> root) {
