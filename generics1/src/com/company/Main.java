@@ -1,6 +1,11 @@
 package com.company;
 
+import com.company.mynodes.MyDictionary;
+import com.company.mynodes.MyNode;
 import com.company.mynodes.MyNodeInt;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -8,6 +13,18 @@ public class Main {
 	    // write your code here
 
         MyNodeInt root_short = new MyNodeInt(1, new MyNodeInt(2, new MyNodeInt(3, new MyNodeInt(4, null))));
+
+        MyNode<Integer> root_short_int = new MyNode(1, new MyNode(2,
+                            new MyNode(3, new MyNode(4, null))));
+
+        MyNode<Double> root_short_double = new MyNode(1.899, new MyNode(2.222,
+                new MyNode(3.777, new MyNode(4.5559, null))));
+
+        MyNode<String> root_short_string = new MyNode("1.899a", new MyNode("2.222b",
+                new MyNode("3.777c", new MyNode("4.5559d", null))));
+
+        printLineGen(root_short_string);
+
         //MyNodeInt root_short = new MyNodeInt(1, new MyNodeInt(2, null));
         //root_short.
 
@@ -35,6 +52,24 @@ public class Main {
         printLine(root);
         System.out.println("========== reverse ===============");
         printLine(reverseList(root));
+
+        List<Integer> numbers = new ArrayList<>();
+
+        MyDictionary<Integer, String> code = new MyDictionary<>(555, "Baloon!");
+        System.out.println(code.getValue(554));
+        System.out.println(code.getValue(557));
+        System.out.println(code.getValue(555));
+
+        MyDictionary<String, Integer> code2 = new MyDictionary<>("xyz", 1000000);
+        System.out.println(code2.getValue("xzz"));
+        System.out.println(String.format("$%,d", code2.getValue("xyz")));
+    }
+
+    static void printLineGen(MyNode<?> root) {
+        while (root != null) {
+            System.out.println(root);
+            root = root.getNext();
+        }
     }
 
     static void printLine(MyNodeInt root) {
